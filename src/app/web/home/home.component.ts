@@ -8,5 +8,14 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 
   text1 = "";
+  number1 = 0;
 
+  opciones = "";
+  valor:String ="";
+
+  Select(){
+    this.opciones =  (<HTMLSelectElement>document.getElementById('opciones')).value;
+    this.valor = this.opciones;
+
+  }
 }
