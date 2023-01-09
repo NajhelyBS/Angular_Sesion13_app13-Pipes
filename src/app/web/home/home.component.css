@@ -1,0 +1,17 @@
+#valor {
+    font-size: 30px;
+    font-weight: 560;
+}
+input {
+    height: 3em;
+}
+
+p{
+    font-size: 20px;
+    font-weight: 550;
+}
+
+#moneda {
+    font-weight: 650;
+    color: rgb(7, 44, 165);
+}

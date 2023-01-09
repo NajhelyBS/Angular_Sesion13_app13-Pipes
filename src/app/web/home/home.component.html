@@ -1,46 +1,60 @@
-<div>
-    <h1 class="text-primary text-center pt-4">Uso de Pipes</h1>
-    <div class="container-fluid">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-1 offset-4 mt-5" >
-            <span>Valor:</span>
+        <div class="col-md-6 " style="border-right:dashed 2px rgb(20, 73, 218);">
+            <div>
+                <h1 class="text-primary text-center pt-2">Uso de Pipes</h1>
+                <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2 offset-1 mt-3" >
+                        <span id="valor">Valor:</span> 
+                    </div>
+                    <div class="col-md-6 mt-3" >
+                        <input [(ngModel)]="text1" type="text" class="form-control text-center">
+                    </div>
+                </div>
+     
+                <div class="d-flex justify-content-center mt-5 text-primary">
+                    <h3>Resultado: {{text1 | uppercase}}</h3></div>
+            </div>  
+            </div>
         </div>
-        <div class="col-md-3 mt-5"> 
-            <input [(ngModel)]="text1" type="text" class="form-control text-center">
-        </div>
-    </div>
+        <div class="col-md-6">
 
-    <div class="d-flex justify-content-center mt-5">
-        <h3>Resultado: {{text1 | uppercase}}</h3>
+            <div>
+                <h1 class="text-primary text-center pt-2">Currency Pipes</h1>
+                <div class="container-fluid">
+                <div class="row">
+                   
+                    <div class="col-md-2 offset-1 mt-3" >
+                        <span id="valor">Valor:</span>
+                    </div>
+                    <div class="col-md-6 mt-3"> 
+                        <input [(ngModel)]="number1" type="number" class="form-control text-center">
+                    </div>
+                </div>
+        
+
+                    <div class="mt-5 d-flex justify-content-center">
+                        <select name="opciones" id="opciones" class="form-control" (change)="Select()">
+                            <option value="0" selected>Seleccione el tipo de moneda</option>
+                            <option value="1">USD</option>
+                            <option value="2">EUR</option>
+                        </select>
+                    </div>
+                
+            
+                <div class="d-flex justify-content-center mt-5" [ngSwitch]="valor">
+                    <p *ngSwitchDefault="0" class="text-primary">Ingrese un valor y luego seleccione el tipo de moneda</p>
+                    <h3 *ngSwitchCase="1"><span id="moneda">USD: </span>{{number1 | currency}} </h3> 
+                    <h3 *ngSwitchCase="2"><span id="moneda">EUR: </span>{{number1 | currency:'EUR'}} </h3>
+                </div>
+            </div>  
+            </div>
+        </div>
     </div>
-</div>  
 </div>
 
 
-<div>
-    <h1 class="text-primary text-center pt-4">Currency Pipes</h1>
-    <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-1 offset-4 mt-5" >
-            <span>Valor:</span>
-        </div>
-        <div class="col-md-3 mt-5"> 
-            <input [(ngModel)]="number1" type="number" class="form-control text-center">
-        </div>
-        <div class="col-md-3  offset-4 mt-5">
-            <select name="opciones" id="opciones" class="form-control" (change)="Select()">
-                <option value="0" selected>Seleccione el tipo de moneda</option>
-                <option value="1">USD</option>
-                <option value="2">EUR</option>
-            </select>
-        </div>
-    </div>
 
-    <div class="d-flex justify-content-center mt-5" [ngSwitch]="valor">
-        <h3 *ngSwitchDefault="0" >Ingrese un valor y luego seleccione el tipo de moneda</h3>
-        <h3 *ngSwitchCase="1">USD: {{number1 | currency}} </h3> 
-        <h3 *ngSwitchCase="2">EUR: {{number1 | currency:'EUR'}} </h3>
-    </div>
-</div>  
-</div>
+
 
